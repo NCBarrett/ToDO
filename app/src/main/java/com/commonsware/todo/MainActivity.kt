@@ -1,8 +1,10 @@
 package com.commonsware.todo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.commonsware.todo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +16,14 @@ class MainActivity : AppCompatActivity() {
 
     setContentView(binding.root)
     setSupportActionBar(binding.toolbar)
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+    R.id.about -> {
+      startActivity(Intent(this, AboutActivity::class.java))
+      true
+    }
+    else -> super.onOptionsItemSelected(item)
   }
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {
