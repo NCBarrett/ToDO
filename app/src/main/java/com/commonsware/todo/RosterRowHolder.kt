@@ -9,6 +9,7 @@ class RosterRowHolder(private val binding: TodoRowBinding) :
         fun bind(model: ToDoModel) {
             binding.apply {
                 isCompleted.isChecked = model.isCompleted
+                isCompleted.setOnCheckedChangeListener { _, _ -> TODO()  }
                 desc.text = model.description
             }
         }
